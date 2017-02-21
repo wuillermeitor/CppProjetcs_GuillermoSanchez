@@ -66,4 +66,10 @@ int main() {
 		};
 		++i;
 	}
+
+	std::cout << "List of enemies:\n";
+	for (auto &enemy : enemies) {
+		std::cout << enemy.name << " is a " << enemy.getEnemyTypeString() << " whose life is" << enemy.health << std::endl;
+	}
+	return 0;
 }
