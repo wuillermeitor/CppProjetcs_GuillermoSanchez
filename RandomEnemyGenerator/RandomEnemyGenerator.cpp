@@ -30,7 +30,7 @@ bool operator == (const Enemy &a, const Enemy &b) {
 	return a.name == b.name && a.type == b.type;
 }
 
-static Enemy CreateRAndomEnemy() {
+static Enemy CreateRandomEnemy() {
 	static const int MAX_LIFE{ 500 };
 	static const std::string NAMES[]{
 		"Gertrudis",
@@ -52,4 +52,18 @@ int main() {
 	srand(static_cast<unsigned>(time(nullptr)));
 	const int MAX_ENEMIES{ 5 };
 	Enemy enemies[MAX_ENEMIES];
+	{
+		int i{ 0 };
+		while (i < MAX_ENEMIES) {
+			enemies[i] = CreateRandomEnemy();
+			int j{ i - 1 };
+			while (j >= 0)
+				if (enemies[i] == enemies[j]) {
+					--i;
+					break;
+				};
+				j--;
+		};
+		++i;
+	}
 }
