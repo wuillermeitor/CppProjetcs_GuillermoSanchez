@@ -7,6 +7,7 @@ enum class EnemyType {
 	VAMPIRE,
 	GHOST,
 	WITCH,
+	MAX
 };
 
 struct Enemy {
@@ -38,6 +39,12 @@ static Enemy CreateRAndomEnemy() {
 		"Hipolito",
 		"Eustaquio",
 		"Fulgencia"
+	};
+
+	return Enemy{
+		static_cast<EnemyType>(rand() % static_cast<int>(EnemyType::MAX)),
+		NAMES[rand() % (sizeof NAMES / sizeof std::string)],
+		rand() % MAX_LIFE
 	};
 }
 
