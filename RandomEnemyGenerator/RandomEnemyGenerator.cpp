@@ -41,4 +41,8 @@ static Enemy CreateRAndomEnemy() {
 	};
 }
 
-//prueba chavaluski
+int main() {
+	srand(static_cast<unsigned>(time(nullptr)));
+	const int MAX_ENEMIES{ 5 };
+	Enemy enemies[MAX_ENEMIES];
+}
